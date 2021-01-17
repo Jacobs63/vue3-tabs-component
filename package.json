@@ -1,0 +1,35 @@
+{
+  "name": "vue3-tabs-component",
+  "version": "0.0.1",
+  "description": "A Vue component to easily render tabs",
+  "main": "src/index.js",
+  "jsnext:main": "src/index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config docs/webpack.config.js",
+    "demo": "NODE_ENV=production webpack --config docs/webpack.config.js",
+    "build": "rm -rf dist && NODE_ENV=production webpack",
+    "lint": "eslint --ext .js,.vue --fix src __tests__; exit 0",
+    "prepublish": "npm run test; npm run build",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jacobs63/vue3-tabs-component.git"
+  },
+  "author": "Jakub Potocký",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jacobs63/vue3-tabs-component/issues"
+  },
+  "homepage": "https://github.com/jacobs63/vue3-tabs-component",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.7.1",
+    "vue": "^3.0.0",
+    "vue-loader": "^16.1.0",
+    "webpack": "^5.0.0",
+    "webpack-merge": "^4.1.0"
+  }
+}

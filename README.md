@@ -1,7 +1,3 @@
-🚨 **THIS PACKAGE HAS BEEN ABANDONED** 🚨
-
-We don't use this package anymore in our own projects and cannot justify the time needed to maintain it anymore. That's why we have chosen to abandon it. Feel free to fork our code and maintain your own copy.
-
 # A Vue component to easily render tabs
 
 [![Latest Version on NPM](https://img.shields.io/npm/v/vue3-tabs-component.svg?style=flat-square)](https://npmjs.com/package/vue3-tabs-component)

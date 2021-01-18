@@ -74,12 +74,6 @@ export default {
       hash,
       isActive
     }
-  },
-
-  methods: {
-    getHash() {
-      return this.hash
-    }
   }
 };
 </script>

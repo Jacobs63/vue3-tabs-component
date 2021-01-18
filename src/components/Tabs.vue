@@ -89,7 +89,7 @@ export default {
 
     provide('tabsProvider', state)
 
-    const storageKey = `vue-tabs.cache.${window.location.host}${window.location.pathname}`
+    const storageKey = `vue-tabs-component.cache.${window.location.host}${window.location.pathname}`
 
     const selectTab = (selectedTabHash, event) => {
       if (event && !props.options.useUrlFragment) {
@@ -121,10 +121,6 @@ export default {
       state.lastActiveTabHash = state.activeTabHash = selectedTab.hash;
 
       expiringStorage.set(storageKey, selectedTab.hash, props.cacheLifetime);
-    }
-
-    const getTabIndex = (hash) => {
-      return state.tabs.indexOf(findTab(hash));
     }
 
     const findTab = (hash) => {
@@ -161,7 +157,6 @@ export default {
     return {
       ...toRefs(state),
       selectTab,
-      getTabIndex,
       findTab
     }
   },

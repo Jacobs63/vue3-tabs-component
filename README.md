@@ -52,23 +52,26 @@ npm install vue3-tabs-component --save
 
 ## Usage
 
-The most common use case is to register the component globally.
+The most common use case is to register the components globally:
 
 ```js
-//in your app.js or similar file
-import Vue from 'vue';
+import { createApp } from 'vue'
 import {Tabs, Tab} from 'vue3-tabs-component';
 
-Vue.component('tabs', Tabs);
-Vue.component('tab', Tab);
+createApp(App)
+    .component('tabs', Tabs)
+    .component('tab', Tab)
+    .mount('#app')
 ```
 
 Alternatively you can do this to register the components:
 
 ```js
-import Tabs from 'vue3-tabs-component';
+import Vue from 'vue';
+import {Tabs, Tab} from 'vue3-tabs-component';
 
-Vue.use(Tabs);
+Vue.component('tabs', Tabs);
+Vue.component('tab', Tab);
 ```
 
 On your page you can now use html like this to render tabs: 
@@ -202,7 +205,7 @@ The output HTML classes can be overridden by using the following `Tabs` componen
 - `nav-item-active-class`
 - `nav-item-disabled-class`
 - `nav-item-link-class`
-- `nav-item-link-ctive-class`
+- `nav-item-link-active-class`
 - `nav-item-link-disabled-class`
 
 The `Tab` content (section) class can be overridden with the `panel-class` attribute 

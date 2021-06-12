@@ -1,5 +1,5 @@
-import Tab from './components/Tab';
-import Tabs from './components/Tabs';
+import Tab from './components/Tab.vue';
+import Tabs from './components/Tabs.vue';
 
 export default {
     install(Vue) {

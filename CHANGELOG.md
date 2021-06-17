@@ -2,6 +2,9 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.0.2 - 2021-06-12
+- Fix trailing `n` character in CDN
+
 ## 1.0.1 - 2021-06-12
 - Fix importing `Tab` & `Tabs` components when using Vite
 

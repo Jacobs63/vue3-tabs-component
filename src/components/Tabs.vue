@@ -102,7 +102,7 @@ export default {
         return;
       }
 
-      if (selectedTab.isDisabled) {
+      if (event && selectedTab.isDisabled) {
         event.preventDefault();
         return;
       }

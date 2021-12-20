@@ -89,6 +89,15 @@ export default {
 
     provide('tabsProvider', state)
 
+    provide('addTab', (tab) => {
+      state.tabs.push(tab)
+    })
+
+    provide('updateTab', (computedId, data) => {
+      let idx = state.tabs.findIndex((tab) => tab.computedId === computedId)
+      state.tabs[idx] = data
+    })
+
     const storageKey = `vue-tabs-component.cache.${window.location.host}${window.location.pathname}`
 
     const selectTab = (selectedTabHash, event) => {

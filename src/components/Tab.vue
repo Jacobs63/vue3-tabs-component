@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import {inject, watch, ref, onBeforeMount} from 'vue';
+import {inject, watch, ref, onBeforeMount, onBeforeUnmount} from 'vue';
 
 export default {
   name: 'Tab',
@@ -46,6 +46,7 @@ export default {
     const isActive = ref(false)
 
     const tabsProvider = inject('tabsProvider')
+    const deleteTab = inject('deleteTab')
 
     const header = props.prefix + props.name + props.suffix
     const computedId = props.id ? props.id : props.name.toLowerCase().replace(/ /g, '-')
@@ -66,6 +67,10 @@ export default {
         hash: hash,
         index: tabsProvider.tabs.length
       })
+    })
+
+    onBeforeUnmount(() => {
+      deleteTab(computedId)
     })
 
     return {

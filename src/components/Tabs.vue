@@ -89,6 +89,12 @@ export default {
 
     provide('tabsProvider', state)
 
+    provide('deleteTab', (computedId) => {
+      let tabIndex = state.tabs.findIndex((tab) => tab.computedId === computedId)
+
+      state.tabs.splice(tabIndex, 1)
+    })
+
     const storageKey = `vue-tabs-component.cache.${window.location.host}${window.location.pathname}`
 
     const selectTab = (selectedTabHash, event) => {

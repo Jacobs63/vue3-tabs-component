@@ -2,6 +2,9 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.0.4 - 2021-12-21
+- Fix internal state of Tabs component not reflecting unmounting of a Tab
+
 ## 1.0.3 - 2021-07-29
 - Fix preventing default event behaviour when a disabled tab is being selected and event is not provided
 

@@ -2,6 +2,9 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.0.5 - 2021-12-21
+- Fix internal state of Tabs component not reflecting updating of a tab
+
 ## 1.0.4 - 2021-12-21
 - Fix internal state of Tabs component not reflecting unmounting of a Tab
 

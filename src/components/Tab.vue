@@ -46,6 +46,8 @@ export default {
     const isActive = ref(false)
 
     const tabsProvider = inject('tabsProvider')
+    const addTab = inject('addTab')
+    const updateTab = inject('updateTab')
     const deleteTab = inject('deleteTab')
 
     const header = props.prefix + props.name + props.suffix
@@ -59,13 +61,25 @@ export default {
         }
     )
 
-    onBeforeMount(() => {
-      tabsProvider.tabs.push({
+    watch(() => Object.assign({}, props), () => {
+      updateTab(computedId, {
         name: props.name,
         header: header,
         isDisabled: props.isDisabled,
         hash: hash,
-        index: tabsProvider.tabs.length
+        index: tabsProvider.tabs.length,
+        computedId: computedId
+      })
+    })
+
+    onBeforeMount(() => {
+      addTab({
+        name: props.name,
+        header: header,
+        isDisabled: props.isDisabled,
+        hash: hash,
+        index: tabsProvider.tabs.length,
+        computedId: computedId
       })
     })
 

@@ -89,6 +89,15 @@ export default {
 
     provide('tabsProvider', state)
 
+    provide('addTab', (tab) => {
+      state.tabs.push(tab)
+    })
+
+    provide('updateTab', (computedId, data) => {
+      let tabIndex = state.tabs.findIndex((tab) => tab.computedId === computedId)
+      
+      state.tabs[tabIndex] = data
+
     provide('deleteTab', (computedId) => {
       let tabIndex = state.tabs.findIndex((tab) => tab.computedId === computedId)
 

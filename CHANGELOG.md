@@ -2,7 +2,10 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
-## 1.0.5 - 2021-12-21
+## 1.0.6 - 2022-04-09
+- Fix tab prefix, name & suffix props changes not reflecting on tab header when changed dynamically
+
+## 1.0.5 - 2021-12-23
 - Fix internal state of Tabs component not reflecting updating of a tab
 
 ## 1.0.4 - 2021-12-21

@@ -64,7 +64,7 @@ export default {
     watch(() => Object.assign({}, props), () => {
       updateTab(computedId, {
         name: props.name,
-        header: header,
+        header: props.prefix + props.name + props.suffix,
         isDisabled: props.isDisabled,
         hash: hash,
         index: tabsProvider.tabs.length,

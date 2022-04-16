@@ -36,6 +36,9 @@ When reloading the page the component will automatically [display the tab that w
 
 The rendered output adheres to [the ARIA specification](http://heydonworks.com/practical_aria_examples/#tab-interface).
 
+## Demo
+The package demo is available at https://tabs-component.jakubpotocky.sk
+
 ## Installation
 
 You can install the package via yarn:

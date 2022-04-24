@@ -96,6 +96,8 @@ export default {
     provide('updateTab', (computedId, data) => {
       let tabIndex = state.tabs.findIndex((tab) => tab.computedId === computedId)
 
+      data.isActive = state.tabs[tabIndex].isActive;
+
       state.tabs[tabIndex] = data
     })
 

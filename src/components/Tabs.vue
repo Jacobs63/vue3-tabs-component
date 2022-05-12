@@ -107,8 +107,6 @@ export default {
       state.tabs.splice(tabIndex, 1)
     })
 
-    const storageKey = `vue-tabs-component.cache.${window.location.host}${window.location.pathname}`
-
     const selectTab = (selectedTabHash, event) => {
       if (event && !props.options.useUrlFragment) {
         event.preventDefault();
@@ -138,6 +136,7 @@ export default {
 
       state.lastActiveTabHash = state.activeTabHash = selectedTab.hash;
 
+      const storageKey = `vue-tabs-component.cache.${window.location.host}${window.location.pathname}`;
       expiringStorage.set(storageKey, selectedTab.hash, props.cacheLifetime);
     }
 
@@ -157,6 +156,7 @@ export default {
         return;
       }
 
+      const storageKey = `vue-tabs-component.cache.${window.location.host}${window.location.pathname}`;
       const previousSelectedTabHash = expiringStorage.get(storageKey);
 
       if (findTab(previousSelectedTabHash)) {

@@ -2,6 +2,9 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.0.8 - 2022-05-15
+- Fix server side rendering for Tabs component to use the `window` object after mounting
+
 ## 1.0.7 - 2022-04-24
 - Fix tab active state persistence when a Tab's props are changed
 

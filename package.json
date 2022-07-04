@@ -2,7 +2,7 @@
   "name": "vue3-tabs-component",
   "version": "1.0.8",
   "description": "A Vue component to easily render tabs",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "jsnext:main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server --config docs/webpack.config.js",

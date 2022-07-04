@@ -1,6 +1,6 @@
 {
   "name": "vue3-tabs-component",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A Vue component to easily render tabs",
   "main": "dist/index.js",
   "jsnext:main": "src/index.js",

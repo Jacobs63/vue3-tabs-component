@@ -2,7 +2,7 @@
   <h1 class="page-title">
     <a href="https://github.com/Jacobs63/vue3-tabs-component">Vue-tabs-component</a>
   </h1>
-  <tabs>
+  <tabs ref="testTabs">
     <tab name="First tab">
       <h2 class="page-subtitle">First tab</h2>
       This is the content of the first tab.
@@ -39,6 +39,13 @@
       which tab was opened previously. If you <a href="https://tabs-component.jakubotocky.sk">reload without fragment</a>
       the tab that is currently active will receive focus again. More about this feature <a href="https://github.com/Jacobs63/vue3-tabs-component#remembering-the-last-opened-tab">on Github</a>.
     </p>
+
+    <p>
+      The active tab can also be changed programmatically outside:
+      <button class="tabs-component-btn" @click="changeToARandomTab">
+        Change to a random tab
+      </button>
+    </p>
   </section>
 
   <small class="page-outro">
@@ -46,3 +53,25 @@
     Maintained by <a href="https://jakubpotocky.sk">Jakub Potocký</a>
   </small>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+
+const testTabs = ref(null)
+
+const changeToARandomTab = () => {
+  const activeTab = testTabs.value.activeTabHash
+
+  const changeableTabs = testTabs.value.tabs.filter((tab) => {
+    if (tab.isDisabled) {
+      return false
+    }
+
+    return tab.hash !== activeTab;
+  })
+
+  const randomTab = changeableTabs[Math.floor(Math.random() * changeableTabs.length)]
+
+  testTabs.value.selectTab(randomTab.hash)
+}
+</script>

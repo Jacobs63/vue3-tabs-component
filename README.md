@@ -196,6 +196,33 @@ When disabling the cache, it can be useful to specify a default tab to load whic
 </tabs>
 ```
 
+### Changing active tab programmatically
+If you would like to change an active tab of a Tabs component programatically you can do so by referencing the tabs component and then calling the `selectTab` method on the reference's value with the appropriate tab hash.
+E.g. clicking the "Change tab" button would change set `#first-tab` as active on the tabs instance referenced as `testTabs`:
+```html
+<template>
+  <tabs ref="testTabs" :options="{ defaultTabHash: 'second-tab' }">
+    <tab id="first-tab" name="First tab">
+      First tab content
+    </tab>
+    <tab id="second-tab" name="Default tab">
+      Second tab content
+    </tab>
+  </tabs>
+  <button @click="changeTab">Change tab</button>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+const testTabs = ref(null)
+  
+const changeTab = () => {
+  testTabs.value.selectTab('#first-tab')
+}
+</script>
+```
+
+
 ### CSS
 
 Each node can be styled by specifying classes.

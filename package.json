@@ -1,6 +1,6 @@
 {
   "name": "vue3-tabs-component",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A Vue component to easily render tabs",
   "main": "dist/index.js",
   "unpkg": "dist/index.js",

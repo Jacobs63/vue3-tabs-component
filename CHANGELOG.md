@@ -2,6 +2,12 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.0.10 - 2022-07-05
+- Fix `vue` external when used as UMD module
+
+## 1.0.9 - 2022-07-04
+- Add UMD module
+
 ## 1.0.8 - 2022-05-15
 - Fix server side rendering for Tabs component to use the `window` object after mounting
 

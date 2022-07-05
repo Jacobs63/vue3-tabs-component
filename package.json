@@ -3,6 +3,8 @@
   "version": "1.0.10",
   "description": "A Vue component to easily render tabs",
   "main": "dist/index.js",
+  "unpkg": "dist/index.js",
+  "module": "src/index.js",
   "jsnext:main": "src/index.js",
   "scripts": {
     "start": "webpack-dev-server --config docs/webpack.config.js",

@@ -2,6 +2,9 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.0.11 - 2022-07-05
+- Add `module`, `unpkg` definitions
+
 ## 1.0.10 - 2022-07-05
 - Fix `vue` external when used as UMD module
 

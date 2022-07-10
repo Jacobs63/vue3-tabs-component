@@ -1,12 +1,13 @@
 <template>
-  <section v-show="isActive"
-           :aria-hidden="! isActive"
-           :class="panelClass"
-           :id="computedId"
-           role="tabpanel"
-           ref="tab"
+  <section
+    v-show="isActive"
+    :id="computedId"
+    ref="tab"
+    :aria-hidden="! isActive"
+    :class="panelClass"
+    role="tabpanel"
   >
-    <slot/>
+    <slot />
   </section>
 </template>
 
@@ -55,10 +56,10 @@ export default {
     const hash = '#' + (!props.isDisabled ? computedId : '')
 
     watch(
-        () => tabsProvider.activeTabHash,
-        () => {
-          isActive.value = hash === tabsProvider.activeTabHash
-        }
+      () => tabsProvider.activeTabHash,
+      () => {
+        isActive.value = hash === tabsProvider.activeTabHash
+      }
     )
 
     watch(() => Object.assign({}, props), () => {

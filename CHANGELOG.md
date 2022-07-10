@@ -2,6 +2,11 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.1.0 - 2022-07-10
+- Replace webpack with Vite.js for faster package bundling & development
+- Add proper dist compilation as ES & UMD - files renamed to `dist/vue3-tabs-component.es.js` & `dist/vue3-tabs-component.umd.js`
+- Enable ESLint
+
 ## 1.0.11 - 2022-07-05
 - Add `module`, `unpkg` definitions
 

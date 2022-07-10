@@ -2,17 +2,24 @@
   "name": "vue3-tabs-component",
   "version": "1.0.11",
   "description": "A Vue component to easily render tabs",
-  "main": "dist/index.js",
-  "unpkg": "dist/index.js",
-  "module": "src/index.js",
-  "jsnext:main": "src/index.js",
+  "main": "./dist/vue3-tabs-component.umd.js",
+  "unpkg": "./dist/vue3-tabs-component.umd.js",
+  "module": "./dist/vue3-tabs-component.es.js",
+  "jsnext:main": "./dist/vue3-tabs-component.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue3-tabs-component.es.js",
+      "require": "./dist/vue3-tabs-component.umd.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "start": "webpack-dev-server --config docs/webpack.config.js",
-    "demo": "NODE_ENV=production webpack --config docs/webpack.config.js",
-    "build": "rm -rf dist && NODE_ENV=production webpack",
-    "lint": "eslint --ext .js,.vue --fix src __tests__; exit 0",
-    "prepublish": "npm run test; npm run build",
-    "test": "jest"
+    "demo": "vite dev --config docs/vite.demo.config.js",
+    "build-demo": "vite build --config docs/vite.demo.config.js",
+    "build": "vite build",
+    "lint": "eslint --ext .js,.vue src; exit 0"
   },
   "repository": {
     "type": "git",
@@ -28,14 +35,11 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
-    "babel-loader": "^8.2.4",
-    "eslint": "^3.7.1",
-    "html-webpack-plugin": "^5.5.0",
+    "@vitejs/plugin-vue": "^1.2.3",
+    "eslint": "^8.19.0",
+    "eslint-plugin-vue": "^9.2.0",
+    "vite": "^2.3.8",
     "vue": "^3.0.0",
-    "vue-loader": "^16.1.0",
-    "webpack": "^5.0.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.8.1",
-    "webpack-merge": "^5.8.0"
+    "vue-loader": "^16.1.0"
   }
 }

@@ -1,24 +1,28 @@
 <template>
   <div :class="wrapperClass">
-    <ul role="tablist" :class="navClass">
+    <ul
+      role="tablist"
+      :class="navClass"
+    >
       <li
-          v-for="(tab, i) in tabs"
-          :key="i"
-          :class="[ navItemClass, tab.isDisabled ? navItemDisabledClass : '', tab.isActive ? navItemActiveClass : '' ]"
-          role="presentation"
+        v-for="(tab, i) in tabs"
+        :key="i"
+        :class="[ navItemClass, tab.isDisabled ? navItemDisabledClass : '', tab.isActive ? navItemActiveClass : '' ]"
+        role="presentation"
       >
-        <a v-html="tab.header"
-           :aria-controls="tab.hash"
-           :aria-selected="tab.isActive"
-           @click="selectTab(tab.hash, $event)"
-           :href="tab.hash"
-           :class="[ navItemLinkClass, tab.isDisabled ? navItemLinkDisabledClass : '', tab.isActive ? navItemLinkActiveClass : '' ]"
-           role="tab"
-        ></a>
+        <a
+          role="tab"
+          :class="[ navItemLinkClass, tab.isDisabled ? navItemLinkDisabledClass : '', tab.isActive ? navItemLinkActiveClass : '' ]"
+          :aria-controls="tab.hash"
+          :aria-selected="tab.isActive"
+          :href="tab.hash"
+          @click="selectTab(tab.hash, $event)"
+          v-html="tab.header"
+        />
       </li>
     </ul>
     <div :class="panelsWrapperClass">
-      <slot/>
+      <slot />
     </div>
   </div>
 </template>
@@ -30,6 +34,7 @@ import {reactive, provide, onMounted, toRefs} from 'vue';
 export default {
   props: {
     cacheLifetime: {
+      type: Number,
       default: 5,
     },
     options: {

@@ -7,12 +7,12 @@
       <li
         v-for="(tab, i) in tabs"
         :key="i"
-        :class="[ navItemClass, tab.isDisabled ? navItemDisabledClass : '', tab.isActive ? navItemActiveClass : '' ]"
+        :class="[ navItemClass, tab.isDisabled ? navItemDisabledClass : '', tab.isActive ? navItemActiveClass : (!tab.isDisabled ? navItemInactiveClass : '') ]"
         role="presentation"
       >
         <a
           role="tab"
-          :class="[ navItemLinkClass, tab.isDisabled ? navItemLinkDisabledClass : '', tab.isActive ? navItemLinkActiveClass : '' ]"
+          :class="[ navItemLinkClass, tab.isDisabled ? navItemLinkDisabledClass : '', tab.isActive ? navItemLinkActiveClass : (!tab.isDisabled ? navItemLinkInactiveClass : '') ]"
           :aria-controls="tab.hash"
           :aria-selected="tab.isActive"
           :href="tab.hash"
@@ -70,6 +70,10 @@ export default {
       type: String,
       default: 'is-active'
     },
+    navItemInactiveClass: {
+      type: String,
+      default: 'is-inactive'
+    },
     navItemLinkClass: {
       type: String,
       default: 'tabs-component-tab-a'
@@ -77,6 +81,10 @@ export default {
     navItemLinkActiveClass: {
       type: String,
       default: 'is-active'
+    },
+    navItemLinkInactiveClass: {
+      type: String,
+      default: 'is-inactive'
     },
     navItemLinkDisabledClass: {
       type: String,

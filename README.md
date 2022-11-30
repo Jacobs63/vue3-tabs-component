@@ -244,9 +244,11 @@ The output HTML classes can be overridden by using the following `Tabs` componen
 - `nav-class`
 - `nav-item-class`
 - `nav-item-active-class`
+- `nav-item-inactive-class`
 - `nav-item-disabled-class`
 - `nav-item-link-class`
 - `nav-item-link-active-class`
+- `nav-item-link-inactive-class`
 - `nav-item-link-disabled-class`
 
 The `Tab` content (section) class can be overridden with the `panel-class` attribute 
@@ -260,6 +262,9 @@ If no custom classes are set, the following classes are used as default:
         </li>
         <li class="tabs-component-tab is-active"> // nav-item-class + nav-item-active-class
             <a class="tabs-component-tab-a is-active">…</a> // nav-item-link-class + nav-item-link-active-class
+        </li>
+        <li class="tabs-component-tab is-inactive"> // nav-item-class + nav-item-inactive-class
+            <a class="tabs-component-tab-a is-inactive">…</a> // nav-item-link-class + nav-item-link-inactive-class
         </li>
     </ul>
     <div class="tabs-component-panels"> // panels-wrapper-class

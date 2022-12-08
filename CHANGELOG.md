@@ -2,6 +2,9 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.1.2 - 2022-12-08
+- Added classes for inactive tabs & inactive tab links
+
 ## 1.1.1 - 2022-10-19
 - Add support for disabling scroll behavior on `tabs` component via a new prop `options.disableScrollBehavior`
 

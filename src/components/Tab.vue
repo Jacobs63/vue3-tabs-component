@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import {inject, watch, ref, computed, onBeforeMount, onBeforeUnmount} from 'vue';
+import {inject, watch, ref, computed, onBeforeMount, onBeforeUnmount} from 'vue'
 
 export default {
   name: 'Tab',
@@ -53,7 +53,7 @@ export default {
 
     const header = props.prefix + props.name + props.suffix
     const computedId = props.id ? props.id : props.name.toLowerCase().replace(/ /g, '-')
-    const hash = computed(() => '#' + (!props.isDisabled ? computedId : ''));
+    const hash = computed(() => '#' + (!props.isDisabled ? computedId : ''))
 
     watch(
       () => tabsProvider.activeTabHash,

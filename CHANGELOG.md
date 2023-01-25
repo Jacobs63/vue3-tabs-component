@@ -2,6 +2,9 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.1.3 - 2023-01-25
+- Fix tab hash not being updated when a tab's disabled state is changed dynamically
+
 ## 1.1.2 - 2022-12-08
 - Added classes for inactive tabs & inactive tab links
 

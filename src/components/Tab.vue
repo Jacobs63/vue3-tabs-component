@@ -1,8 +1,8 @@
 <template>
   <section
     v-show="isActive"
-    :data-tab-id="computedId"
     ref="tab"
+    :data-tab-id="computedId"
     :aria-hidden="! isActive"
     :class="panelClass"
     role="tabpanel"

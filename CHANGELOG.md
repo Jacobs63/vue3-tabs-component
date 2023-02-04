@@ -2,6 +2,10 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.2.0 - 2023-02-04
+- Move Tab's computed id from `id` attribute to `data-tab-id`
+- Remove `disableScrollBehaviour` option - browser will now never automatically jump to a tab element by hash, as it is undesired
+
 ## 1.1.4 - 2023-01-25
 - Fix dist files missing in CDN
 

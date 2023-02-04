@@ -42,8 +42,7 @@ export default {
       required: false,
       default: () => ({
         useUrlFragment: true,
-        defaultTabHash: null,
-        disableScrollBehavior: false,
+        defaultTabHash: null
       }),
     },
     wrapperClass: {
@@ -122,7 +121,7 @@ export default {
     })
 
     const selectTab = (selectedTabHash, event) => {
-      if (event && (!props.options.useUrlFragment || props.options.disableScrollBehavior)) {
+      if (event && !props.options.useUrlFragment) {
         event.preventDefault();
       }
 

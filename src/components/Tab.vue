@@ -2,6 +2,7 @@
   <section
     v-show="isActive"
     ref="tab"
+    :id="computedId"
     :data-tab-id="computedId"
     :aria-hidden="! isActive"
     :class="panelClass"

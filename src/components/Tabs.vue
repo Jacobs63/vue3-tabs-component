@@ -13,7 +13,7 @@
         <a
           role="tab"
           :class="[ navItemLinkClass, tab.isDisabled ? navItemLinkDisabledClass : '', tab.isActive ? navItemLinkActiveClass : (!tab.isDisabled ? navItemLinkInactiveClass : '') ]"
-          :aria-controls="tab.computedId"
+          :aria-controls="tab.paneId"
           :aria-selected="tab.isActive"
           :href="tab.hash"
           @click="selectTab(tab.hash, $event)"

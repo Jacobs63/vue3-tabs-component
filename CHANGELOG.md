@@ -2,6 +2,9 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.2.1 - 2023-03-19
+- Fix aria-controls referencing non-existent elements by id 
+
 ## 1.2.0 - 2023-02-04
 - Move Tab's computed id from `id` attribute to `data-tab-id`
 - Remove `disableScrollBehaviour` option - browser will now never automatically jump to a tab element by hash, as it is undesired

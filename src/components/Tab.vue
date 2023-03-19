@@ -2,6 +2,7 @@
   <section
     v-show="isActive"
     ref="tab"
+    :id="paneId"
     :data-tab-id="computedId"
     :aria-hidden="! isActive"
     :class="panelClass"
@@ -53,6 +54,7 @@ export default {
 
     const header = props.prefix + props.name + props.suffix
     const computedId = props.id ? props.id : props.name.toLowerCase().replace(/ /g, '-')
+    const paneId = computedId + '-pane'
     const hash = computed(() => '#' + (!props.isDisabled ? computedId : ''))
 
     watch(
@@ -69,7 +71,8 @@ export default {
         isDisabled: props.isDisabled,
         hash: hash.value,
         index: tabsProvider.tabs.length,
-        computedId: computedId
+        computedId: computedId,
+        paneId: paneId
       })
     })
 
@@ -80,7 +83,8 @@ export default {
         isDisabled: props.isDisabled,
         hash: hash.value,
         index: tabsProvider.tabs.length,
-        computedId: computedId
+        computedId: computedId,
+        paneId: paneId
       })
     })
 
@@ -91,6 +95,7 @@ export default {
     return {
       header,
       computedId,
+      paneId,
       hash,
       isActive
     }

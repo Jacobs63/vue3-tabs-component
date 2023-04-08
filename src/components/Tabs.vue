@@ -149,6 +149,10 @@ const selectTab = (selectedTabHash: string, event?: Event): void => {
 
   state.lastActiveTabHash = state.activeTabHash = selectedTab.hash
 
+  if (props.cacheLifetime <= 0) {
+    return
+  }
+
   const storageKey = `vue-tabs-component.cache.${window.location.host}${window.location.pathname}`
 
   expiringStorage.set(storageKey, selectedTab.hash, props.cacheLifetime)
@@ -170,18 +174,20 @@ onMounted(() => {
     return
   }
 
-  const storageKey = `vue-tabs-component.cache.${window.location.host}${window.location.pathname}`
+  if (props.cacheLifetime > 0) {
+    const storageKey = `vue-tabs-component.cache.${window.location.host}${window.location.pathname}`
 
-  const previousSelectedTabHash = expiringStorage.get(storageKey)
+    const previousSelectedTabHash = expiringStorage.get(storageKey)
 
-  if (previousSelectedTabHash !== null && findTab(previousSelectedTabHash)) {
-    selectTab(previousSelectedTabHash)
-    return
-  }
+    if (previousSelectedTabHash !== null && findTab(previousSelectedTabHash)) {
+      selectTab(previousSelectedTabHash)
+      return
+    }
 
-  if (props.options.defaultTabHash && findTab("#" + props.options.defaultTabHash)) {
-    selectTab("#" + props.options.defaultTabHash)
-    return
+    if (props.options.defaultTabHash && findTab("#" + props.options.defaultTabHash)) {
+      selectTab("#" + props.options.defaultTabHash)
+      return
+    }
   }
 
   selectTab(state.tabs[0].hash)

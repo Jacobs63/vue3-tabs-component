@@ -113,6 +113,8 @@ You can change the cache lifetime by passing the lifetime in minutes in the `cac
 </tabs>
 ```
 
+To disable the cache completely, set the `cache-lifetime` as `0`.
+
 ### Disable modifying the url fragment
 
 When using with other libraries that use the url fragment, you can disable modifying the url fragment by passing the `useUrlFragment` options. This helps using it with vue-router, or using vue3-tabs-component twice in the same page.

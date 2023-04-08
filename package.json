@@ -14,14 +14,14 @@
   "author": "Jakub Potocký",
   "exports": {
     ".": {
-      "import": "./dist/vue3-tabs-component.es.js",
+      "import": "./dist/vue3-tabs-component.mjs",
       "require": "./dist/vue3-tabs-component.umd.js"
     }
   },
   "main": "./dist/vue3-tabs-component.umd.js",
   "unpkg": "./dist/vue3-tabs-component.umd.js",
-  "module": "./dist/vue3-tabs-component.es.js",
-  "jsnext:main": "./dist/vue3-tabs-component.es.js",
+  "module": "./dist/vue3-tabs-component.mjs",
+  "jsnext:main": "./dist/vue3-tabs-component.mjs",
   "typings": "./dist/index.d.ts",
   "files": [
     "dist"

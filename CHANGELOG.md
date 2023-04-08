@@ -2,7 +2,10 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
-## 1.3.1 - 2023.04.08
+## 1.3.2 - 2023-04-08
+- Fix referencing non-existent module files in `package.json`
+
+## 1.3.1 - 2023-04-08
 - Disable caching if `cache-lifetime` is set as `0`
 
 ## 1.3.0 - 2023-04-08

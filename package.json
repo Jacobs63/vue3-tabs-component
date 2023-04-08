@@ -2,44 +2,50 @@
   "name": "vue3-tabs-component",
   "version": "1.2.1",
   "description": "A Vue component to easily render tabs",
-  "main": "./dist/vue3-tabs-component.umd.js",
-  "unpkg": "./dist/vue3-tabs-component.umd.js",
-  "module": "./dist/vue3-tabs-component.es.js",
-  "jsnext:main": "./dist/vue3-tabs-component.es.js",
+  "homepage": "https://github.com/jacobs63/vue3-tabs-component",
+  "bugs": {
+    "url": "https://github.com/jacobs63/vue3-tabs-component/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jacobs63/vue3-tabs-component.git"
+  },
+  "license": "MIT",
+  "author": "Jakub Potocký",
   "exports": {
     ".": {
       "import": "./dist/vue3-tabs-component.es.js",
       "require": "./dist/vue3-tabs-component.umd.js"
     }
   },
+  "main": "./dist/vue3-tabs-component.umd.js",
+  "unpkg": "./dist/vue3-tabs-component.umd.js",
+  "module": "./dist/vue3-tabs-component.es.js",
+  "jsnext:main": "./dist/vue3-tabs-component.es.js",
+  "typings": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "demo": "vite dev --config docs/vite.demo.config.js",
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
     "build-demo": "vite build --config docs/vite.demo.config.js",
-    "build": "vite build",
-    "lint": "eslint --ext .js,.vue src; exit 0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jacobs63/vue3-tabs-component.git"
-  },
-  "author": "Jakub Potocký",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jacobs63/vue3-tabs-component/issues"
-  },
-  "homepage": "https://github.com/jacobs63/vue3-tabs-component",
-  "peerDependencies": {
-    "vue": "^3.0.0"
+    "demo": "vite dev --config docs/vite.demo.config.js",
+    "lint": "eslint --ext .ts,.vue src; exit 0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
     "@vitejs/plugin-vue": "^1.2.3",
-    "eslint": "^8.19.0",
-    "eslint-plugin-vue": "^9.2.0",
-    "vite": "^2.3.8",
+    "@vue/eslint-config-typescript": "^11.0.2",
+    "eslint": "^8.36.0",
+    "eslint-plugin-vue": "^9.9.0",
+    "vite": "^3.0.0",
     "vue": "^3.0.0",
-    "vue-loader": "^16.1.0"
+    "vue-eslint-parser": "^9.1.0",
+    "vue-loader": "^16.1.0",
+    "vue-tsc": "^1.2.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
   }
 }

@@ -5,5 +5,5 @@ import { Tabs, Tab } from '../src'
 
 createApp(App)
     .component('tabs', Tabs)
-    .component('Tab', Tab)
+    .component('tab', Tab)
     .mount('#app')

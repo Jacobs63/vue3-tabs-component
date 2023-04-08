@@ -2,6 +2,9 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.3.0 - 2023-04-08
+- Refactor package to TypeScript
+
 ## 1.2.1 - 2023-03-19
 - Fix aria-controls referencing non-existent elements by id 
 

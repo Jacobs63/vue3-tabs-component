@@ -58,8 +58,8 @@ npm install vue3-tabs-component --save
 The most common use case is to register the components globally:
 
 ```js
-import { createApp } from 'vue'
-import {Tabs, Tab} from 'vue3-tabs-component';
+import {createApp} from 'vue'
+import {Tabs, Tab} from 'src/vue3-tabs-component';
 
 createApp(App)
     .component('tabs', Tabs)
@@ -71,7 +71,7 @@ Alternatively you can do this to register the components:
 
 ```js
 import Vue from 'vue';
-import {Tabs, Tab} from 'vue3-tabs-component';
+import {Tabs, Tab} from 'src/vue3-tabs-component';
 
 Vue.component('tabs', Tabs);
 Vue.component('tab', Tab);

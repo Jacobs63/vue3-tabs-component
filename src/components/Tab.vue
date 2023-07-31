@@ -7,6 +7,7 @@
     :aria-hidden="!isActive"
     :class="panelClass"
     role="tabpanel"
+    tabindex="-1"
   >
     <slot />
   </section>

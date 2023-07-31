@@ -18,6 +18,7 @@
           :href="tab.hash"
           @click="selectTab(tab.hash, $event)"
           v-html="tab.header"
+          tabindex="0"
         />
       </li>
     </ul>

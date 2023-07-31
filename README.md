@@ -253,7 +253,9 @@ The output HTML classes can be overridden by using the following `Tabs` componen
 - `nav-item-link-inactive-class`
 - `nav-item-link-disabled-class`
 
-The `Tab` content (section) class can be overridden with the `panel-class` attribute 
+The `Tab` content (section) class can be overridden with the `panel-class` attribute
+A `Tab` can also have custom `nav-item-class` & `nav-item-link-class` props to override the default navigation classes 
+for that specific tab.
 
 If no custom classes are set, the following classes are used as default:
 ```html

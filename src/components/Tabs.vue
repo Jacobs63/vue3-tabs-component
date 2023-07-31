@@ -7,12 +7,20 @@
       <li
         v-for="(tab, i) in state.tabs"
         :key="i"
-        :class="[ navItemClass, tab.isDisabled ? navItemDisabledClass : '', tab.isActive ? navItemActiveClass : (!tab.isDisabled ? navItemInactiveClass : '') ]"
+        :class="[
+          tab.navItemClass ?? navItemClass,
+          tab.isDisabled ? navItemDisabledClass : '',
+          tab.isActive ? navItemActiveClass : (!tab.isDisabled ? navItemInactiveClass : ''),
+        ]"
         role="presentation"
       >
         <a
           role="tab"
-          :class="[ navItemLinkClass, tab.isDisabled ? navItemLinkDisabledClass : '', tab.isActive ? navItemLinkActiveClass : (!tab.isDisabled ? navItemLinkInactiveClass : '') ]"
+          :class="[
+            tab.navItemLinkClass ?? navItemLinkClass,
+            tab.isDisabled ? navItemLinkDisabledClass : '',
+            tab.isActive ? navItemLinkActiveClass : (!tab.isDisabled ? navItemLinkInactiveClass : ''),
+          ]"
           :aria-controls="tab.paneId"
           :aria-selected="tab.isActive"
           :href="tab.hash"
@@ -30,9 +38,11 @@
 
 <script setup lang="ts">
 import expiringStorage from "../expiringStorage"
-import { defineExpose, onMounted, provide, reactive, toRefs } from "vue"
+import { defineExpose, onMounted, PropType, provide, reactive, toRefs } from "vue"
 import { Tab, TabsState } from "../types"
 import { AddTabKey, UpdateTabKey, DeleteTabKey, TabsProviderKey } from "../symbols"
+
+type ClassPropShape = string | Record<string, boolean> | Array<string | Record<string, boolean>>
 
 const props = defineProps({
   cacheLifetime: {
@@ -48,47 +58,47 @@ const props = defineProps({
     })
   },
   wrapperClass: {
-    type: String,
+    type: [String, Object, Array] as PropType<ClassPropShape>,
     default: "tabs-component"
   },
   panelsWrapperClass: {
-    type: String,
+    type: [String, Object, Array] as PropType<ClassPropShape>,
     default: "tabs-component-panels"
   },
   navClass: {
-    type: String,
+    type: [String, Object, Array] as PropType<ClassPropShape>,
     default: "tabs-component-tabs"
   },
   navItemClass: {
-    type: String,
+    type: [String, Object, Array] as PropType<ClassPropShape>,
     default: "tabs-component-tab"
   },
   navItemDisabledClass: {
-    type: String,
+    type: [String, Object, Array] as PropType<ClassPropShape>,
     default: "is-disabled"
   },
   navItemActiveClass: {
-    type: String,
+    type: [String, Object, Array] as PropType<ClassPropShape>,
     default: "is-active"
   },
   navItemInactiveClass: {
-    type: String,
+    type: [String, Object, Array] as PropType<ClassPropShape>,
     default: "is-inactive"
   },
   navItemLinkClass: {
-    type: String,
+    type: [String, Object, Array] as PropType<ClassPropShape>,
     default: "tabs-component-tab-a"
   },
   navItemLinkActiveClass: {
-    type: String,
+    type: [String, Object, Array] as PropType<ClassPropShape>,
     default: "is-active"
   },
   navItemLinkInactiveClass: {
-    type: String,
+    type: [String, Object, Array] as PropType<ClassPropShape>,
     default: "is-inactive"
   },
   navItemLinkDisabledClass: {
-    type: String,
+    type: [String, Object, Array] as PropType<ClassPropShape>,
     default: "is-disabled"
   }
 })

@@ -1,3 +1,5 @@
+type ClassPropShape = string | Record<string, boolean> | Array<string | Record<string, boolean>>
+
 export interface PushTabOptions {
   name: string
   header: string
@@ -6,6 +8,8 @@ export interface PushTabOptions {
   index: number
   computedId: string
   paneId: string
+  navItemClass?: ClassPropShape
+  navItemLinkClass?: ClassPropShape
 }
 
 export interface Tab extends PushTabOptions {
@@ -22,16 +26,16 @@ export interface Tabs {
     useUrlFragment?: boolean
     defaultTabHash?: string | null
   }
-  wrapperClass: string
-  navClass: string
-  navItemClass: string
-  navItemDisabledClass: string
-  navItemActiveClass: string
-  navItemInactiveClass: string
-  navItemLinkClass: string
-  navItemLinkActiveClass: string
-  navItemLinkInactiveClass: string
-  navItemLinkDisabledClass: string
+  wrapperClass: ClassPropShape
+  navClass: ClassPropShape
+  navItemClass: ClassPropShape
+  navItemDisabledClass: ClassPropShape
+  navItemActiveClass: ClassPropShape
+  navItemInactiveClass: ClassPropShape
+  navItemLinkClass: ClassPropShape
+  navItemLinkActiveClass: ClassPropShape
+  navItemLinkInactiveClass: ClassPropShape
+  navItemLinkDisabledClass: ClassPropShape
 }
 
 export interface TabsState {

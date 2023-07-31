@@ -14,13 +14,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineExpose, onBeforeMount, onBeforeUnmount, ref, watch } from "vue"
+import { computed, defineExpose, onBeforeMount, onBeforeUnmount, PropType, ref, watch } from "vue"
 import { TabsProviderKey, AddTabKey, UpdateTabKey, DeleteTabKey } from "../symbols"
 import { injectStrict } from "../utils"
 
+type ClassPropShape = string | Record<string, boolean> | Array<string | Record<string, boolean>>
+
 const props = defineProps({
   panelClass: {
-    type: String,
+    type: [String, Object, Array] as PropType<ClassPropShape>,
     default: "tabs-component-panel"
   },
   id: {
@@ -42,6 +44,16 @@ const props = defineProps({
   isDisabled: {
     type: Boolean,
     default: false
+  },
+  navItemClass: {
+    type: [String, Object, Array] as PropType<ClassPropShape>,
+    required: false,
+    default: null
+  },
+  navItemLinkClass: {
+    type: [String, Object, Array] as PropType<ClassPropShape>,
+    required: false,
+    default: null
   }
 })
 
@@ -76,7 +88,9 @@ watch(
       hash: hash.value,
       index: tabsProvider.tabs.length,
       computedId: computedId,
-      paneId: paneId
+      paneId: paneId,
+      navItemClass: props.navItemClass,
+      navItemLinkClass: props.navItemLinkClass,
     })
   }
 )
@@ -89,7 +103,9 @@ onBeforeMount(() => {
     hash: hash.value,
     index: tabsProvider.tabs.length,
     computedId: computedId,
-    paneId: paneId
+    paneId: paneId,
+    navItemClass: props.navItemClass,
+    navItemLinkClass: props.navItemLinkClass
   })
 })
 

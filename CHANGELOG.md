@@ -2,6 +2,10 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.3.4 - 2023-07-31
+- Fix prop shape for all custom class props to allow for regular Vue class prop shape (string, array, object)
+- Add support for setting custom class for navigation item & navigation item link of a Tab
+
 ## 1.3.3 - 2023-07-31
 - Fix tabs navigation element losing focus on click
 

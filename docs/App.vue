@@ -23,6 +23,10 @@
       <h2 class="page-subtitle">Prefix and suffix</h2>
       A prefix and a suffix can be added — HTML allowed.
     </tab>
+    <tab nav-item-class="tabs-component-tab--custom" nav-item-link-class="tabs-component-tab-a--custom" name="Custom navigation item classes">
+      <h2 class="page-subtitle">Custom navigation item classes</h2>
+      A custom nav-item-class & nav-item-link-class can be added to a tab's navigation item.
+    </tab>
   </tabs>
 
   <section class="page-about">

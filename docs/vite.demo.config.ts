@@ -15,11 +15,11 @@ module.exports = defineConfig({
       output: {
         entryFileNames: "app.js",
         dir: './docs/resources'
-      }
-    },
+      },
 
-    external: [
-      'resources/tabs-component.css'
-    ]
+      external: [
+        'resources/tabs-component.css'
+      ]
+    },
   }
 })

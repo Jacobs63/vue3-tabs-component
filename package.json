@@ -28,8 +28,8 @@
   ],
   "scripts": {
     "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
-    "build-demo": "vite build --config docs/vite.demo.config.js",
-    "demo": "vite dev --config docs/vite.demo.config.js",
+    "build-demo": "vite build --config docs/vite.demo.config.ts",
+    "demo": "vite dev --config docs/vite.demo.config.ts",
     "lint": "eslint --ext .ts,.vue src; exit 0"
   },
   "devDependencies": {

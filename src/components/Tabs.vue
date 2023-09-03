@@ -1,5 +1,8 @@
 <template>
-  <div :class="wrapperClass">
+  <div
+    :class="wrapperClass"
+    :id="id"
+  >
     <ul
       role="tablist"
       :class="navClass"
@@ -38,17 +41,28 @@
 
 <script setup lang="ts">
 import expiringStorage from "../expiringStorage"
-import { defineExpose, defineProps, onMounted, provide, reactive, toRefs, withDefaults } from "vue"
+import {
+  computed,
+  defineExpose,
+  defineProps,
+  onMounted,
+  provide,
+  reactive,
+  toRefs,
+  withDefaults
+} from "vue"
 import { Tab, TabsState } from "../types"
 import { AddTabKey, UpdateTabKey, DeleteTabKey, TabsProviderKey } from "../symbols"
 
 type ClassPropShape = string | Record<string, boolean> | Array<string | Record<string, boolean>>
 
 type Props = {
+  id?: string
   cacheLifetime?: number
   options?: {
     useUrlFragment?: boolean
     defaultTabHash?: string
+    storageKey?: string
   }
   wrapperClass?: ClassPropShape
   panelsWrapperClass?: ClassPropShape
@@ -64,10 +78,12 @@ type Props = {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+  id: undefined,
   cacheLifetime: 5,
   options: () => ({
     useUrlFragment: true,
-    defaultTabHash: undefined
+    defaultTabHash: undefined,
+    storageKey: undefined
   }),
   wrapperClass: "tabs-component",
   panelsWrapperClass: "tabs-component-panels",
@@ -110,6 +126,26 @@ provide(DeleteTabKey, (computedId) => {
   state.tabs.splice(tabIndex, 1)
 })
 
+const storageKey = computed<string>(
+  (): string => {
+    let key = undefined
+
+    if (props.options.storageKey) {
+      key = props.options.storageKey
+    }
+
+    if (! key && props.id) {
+      key = `vue-tabs-component.${props.id}.cache.${window.location.host}${window.location.pathname}`
+    }
+
+    if (! key) {
+      key = `vue-tabs-component.cache.${window.location.host}${window.location.pathname}`
+    }
+
+    return key
+  }
+)
+
 const selectTab = (selectedTabHash: string, event?: Event): void => {
   if (event && !props.options.useUrlFragment) {
     event.preventDefault()
@@ -143,9 +179,7 @@ const selectTab = (selectedTabHash: string, event?: Event): void => {
     return
   }
 
-  const storageKey = `vue-tabs-component.cache.${window.location.host}${window.location.pathname}`
-
-  expiringStorage.set(storageKey, selectedTab.hash, props.cacheLifetime)
+  expiringStorage.set(storageKey.value, selectedTab.hash, props.cacheLifetime)
 }
 
 const findTab = (hash: string): Tab | undefined => {
@@ -165,9 +199,7 @@ onMounted(() => {
   }
 
   if (props.cacheLifetime > 0) {
-    const storageKey = `vue-tabs-component.cache.${window.location.host}${window.location.pathname}`
-
-    const previousSelectedTabHash = expiringStorage.get(storageKey)
+    const previousSelectedTabHash = expiringStorage.get(storageKey.value)
 
     if (previousSelectedTabHash !== null && findTab(previousSelectedTabHash)) {
       selectTab(previousSelectedTabHash)

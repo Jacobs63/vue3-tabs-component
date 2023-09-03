@@ -115,6 +115,23 @@ You can change the cache lifetime by passing the lifetime in minutes in the `cac
 
 To disable the cache completely, set the `cache-lifetime` as `0`.
 
+### Last opened tab storage key
+By default, the default key contains the current host & pathname.
+
+If an `id` is provided as a prop for the `Tabs` component, the **default** key will also contain the provided `id`.
+```html
+<tabs id="my-tabs">
+  ...
+</tabs>
+```
+
+You can, however, set the storage key explicitly by setting the `options.storageKey` prop on a `Tabs` component.
+```html
+<tabs :options="{ storageKey: 'my-storage-key' }">
+  ...
+</tabs>
+```
+
 ### Disable modifying the url fragment
 
 When using with other libraries that use the url fragment, you can disable modifying the url fragment by passing the `useUrlFragment` options. This helps using it with vue-router, or using vue3-tabs-component twice in the same page.
@@ -234,7 +251,6 @@ const changeTab = () => {
 }
 </script>
 ```
-
 
 ### CSS
 

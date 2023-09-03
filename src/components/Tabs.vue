@@ -1,5 +1,7 @@
 <template>
-  <div :class="wrapperClass">
+  <div
+    :class="wrapperClass"
+  >
     <ul
       role="tablist"
       :class="navClass"
@@ -38,69 +40,57 @@
 
 <script setup lang="ts">
 import expiringStorage from "../expiringStorage"
-import { defineExpose, onMounted, PropType, provide, reactive, toRefs } from "vue"
+import {
+  computed,
+  defineExpose,
+  defineProps,
+  onMounted,
+  provide,
+  reactive,
+  toRefs,
+  withDefaults
+} from "vue"
 import { Tab, TabsState } from "../types"
 import { AddTabKey, UpdateTabKey, DeleteTabKey, TabsProviderKey } from "../symbols"
 
 type ClassPropShape = string | Record<string, boolean> | Array<string | Record<string, boolean>>
 
-const props = defineProps({
-  cacheLifetime: {
-    type: Number,
-    default: 5
-  },
-  options: {
-    type: Object,
-    required: false,
-    default: () => ({
-      useUrlFragment: true,
-      defaultTabHash: null
-    })
-  },
-  wrapperClass: {
-    type: [String, Object, Array] as PropType<ClassPropShape>,
-    default: "tabs-component"
-  },
-  panelsWrapperClass: {
-    type: [String, Object, Array] as PropType<ClassPropShape>,
-    default: "tabs-component-panels"
-  },
-  navClass: {
-    type: [String, Object, Array] as PropType<ClassPropShape>,
-    default: "tabs-component-tabs"
-  },
-  navItemClass: {
-    type: [String, Object, Array] as PropType<ClassPropShape>,
-    default: "tabs-component-tab"
-  },
-  navItemDisabledClass: {
-    type: [String, Object, Array] as PropType<ClassPropShape>,
-    default: "is-disabled"
-  },
-  navItemActiveClass: {
-    type: [String, Object, Array] as PropType<ClassPropShape>,
-    default: "is-active"
-  },
-  navItemInactiveClass: {
-    type: [String, Object, Array] as PropType<ClassPropShape>,
-    default: "is-inactive"
-  },
-  navItemLinkClass: {
-    type: [String, Object, Array] as PropType<ClassPropShape>,
-    default: "tabs-component-tab-a"
-  },
-  navItemLinkActiveClass: {
-    type: [String, Object, Array] as PropType<ClassPropShape>,
-    default: "is-active"
-  },
-  navItemLinkInactiveClass: {
-    type: [String, Object, Array] as PropType<ClassPropShape>,
-    default: "is-inactive"
-  },
-  navItemLinkDisabledClass: {
-    type: [String, Object, Array] as PropType<ClassPropShape>,
-    default: "is-disabled"
+type Props = {
+  cacheLifetime?: number
+  options?: {
+    useUrlFragment?: boolean
+    defaultTabHash?: string
   }
+  wrapperClass?: ClassPropShape
+  panelsWrapperClass?: ClassPropShape
+  navClass?: ClassPropShape
+  navItemClass?: ClassPropShape
+  navItemDisabledClass?: ClassPropShape
+  navItemActiveClass?: ClassPropShape
+  navItemInactiveClass?: ClassPropShape
+  navItemLinkClass?: ClassPropShape
+  navItemLinkActiveClass?: ClassPropShape
+  navItemLinkInactiveClass?: ClassPropShape
+  navItemLinkDisabledClass?: ClassPropShape
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  cacheLifetime: 5,
+  options: () => ({
+    useUrlFragment: true,
+    defaultTabHash: undefined
+  }),
+  wrapperClass: "tabs-component",
+  panelsWrapperClass: "tabs-component-panels",
+  navClass: "tabs-component-tabs",
+  navItemClass: "tabs-component-tab",
+  navItemDisabledClass: "is-disabled",
+  navItemActiveClass: "is-active",
+  navItemInactiveClass: "is-inactive",
+  navItemLinkClass: "tabs-component-tab-a",
+  navItemLinkActiveClass: "is-active",
+  navItemLinkInactiveClass: "is-inactive",
+  navItemLinkDisabledClass: "is-disabled",
 })
 
 const emit = defineEmits(["changed", "clicked"])

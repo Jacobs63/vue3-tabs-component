@@ -14,47 +14,31 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineExpose, onBeforeMount, onBeforeUnmount, PropType, ref, watch } from "vue"
+import { computed, defineExpose, defineProps, onBeforeMount, onBeforeUnmount, ref, watch, withDefaults } from "vue"
 import { TabsProviderKey, AddTabKey, UpdateTabKey, DeleteTabKey } from "../symbols"
 import { injectStrict } from "../utils"
 
 type ClassPropShape = string | Record<string, boolean> | Array<string | Record<string, boolean>>
 
-const props = defineProps({
-  panelClass: {
-    type: [String, Object, Array] as PropType<ClassPropShape>,
-    default: "tabs-component-panel"
-  },
-  id: {
-    type: String,
-    default: null
-  },
-  name: {
-    type: String,
-    required: true
-  },
-  prefix: {
-    type: String,
-    default: ""
-  },
-  suffix: {
-    type: String,
-    default: ""
-  },
-  isDisabled: {
-    type: Boolean,
-    default: false
-  },
-  navItemClass: {
-    type: [String, Object, Array] as PropType<ClassPropShape>,
-    required: false,
-    default: null
-  },
-  navItemLinkClass: {
-    type: [String, Object, Array] as PropType<ClassPropShape>,
-    required: false,
-    default: null
-  }
+type Props = {
+  panelClass?: ClassPropShape
+  id?: string
+  name: string
+  prefix?: string
+  suffix?: string
+  isDisabled?: boolean
+  navItemClass?: ClassPropShape
+  navItemLinkClass?: ClassPropShape
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  panelClass: "tabs-component-panel",
+  id: undefined,
+  prefix: "",
+  suffix: "",
+  isDisabled: false,
+  navItemClass: undefined,
+  navItemLinkClass: undefined,
 })
 
 const isActive = ref(false)
@@ -90,7 +74,7 @@ watch(
       computedId: computedId,
       paneId: paneId,
       navItemClass: props.navItemClass,
-      navItemLinkClass: props.navItemLinkClass,
+      navItemLinkClass: props.navItemLinkClass
     })
   }
 )

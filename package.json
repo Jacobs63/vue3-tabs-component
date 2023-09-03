@@ -1,6 +1,6 @@
 {
   "name": "vue3-tabs-component",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "A Vue component to easily render tabs",
   "homepage": "https://github.com/jacobs63/vue3-tabs-component",
   "bugs": {
@@ -28,8 +28,8 @@
   ],
   "scripts": {
     "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
-    "build-demo": "vite build --config docs/vite.demo.config.js",
-    "demo": "vite dev --config docs/vite.demo.config.js",
+    "build-demo": "vite build --config docs/vite.demo.config.ts",
+    "demo": "vite dev --config docs/vite.demo.config.ts",
     "lint": "eslint --ext .ts,.vue src; exit 0"
   },
   "devDependencies": {

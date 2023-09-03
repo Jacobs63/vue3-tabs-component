@@ -40,7 +40,7 @@
       will display the contents of the tab named <code>Second tab</code>.</p>
 
     <p>The component will also <strong>remember</strong>
-      which tab was opened previously. If you <a href="https://tabs-component.jakubotocky.sk">reload without fragment</a>
+      which tab was opened previously. If you <a href="https://tabs-component.jakubpotocky.sk">reload without fragment</a>
       the tab that is currently active will receive focus again. More about this feature <a href="https://github.com/Jacobs63/vue3-tabs-component#remembering-the-last-opened-tab">on Github</a>.
     </p>
 

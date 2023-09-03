@@ -97,7 +97,7 @@ On your page you can now use html like this to render tabs:
 
 By default, it will show the first tab.
 
-If you click on a tab a `href` representation of the name will be append to the url. For example clicking on the tab `Second tab` will append `#second-tab` to the url.
+If you click on a tab a `href` representation of the name will be appended to the url. For example clicking on the tab `Second tab` will append `#second-tab` to the url.
 
 When loading a page with a fragment that matches the `href` of a tab, it will open up that tab. For example visiting `/#third-tab` will open up the tab with name `Third tab`.
 
@@ -162,17 +162,8 @@ Tabs have two events to which you can bind: `changed` and `clicked`
 </tabs>
 ```
 For example:
-```js
-export default {
-    methods: {
-        tabClicked (selectedTab) {
-            console.log('Current tab re-clicked:' + selectedTab.tab.name)
-        },
-        tabChanged (selectedTab) {
-            console.log('Tab changed to:' + selectedTab.tab.name)
-        }
-    }
-}
+```vue
+<script></script>
 ```
 
 `changed` is emitted when the tab changes and can be used as handle to load data on request.
@@ -229,7 +220,7 @@ When disabling the cache, it can be useful to specify a default tab to load whic
 ### Changing active tab programmatically
 If you would like to change an active tab of a Tabs component programatically you can do so by referencing the tabs component and then calling the `selectTab` method on the reference's value with the appropriate tab hash.
 E.g. clicking the "Change tab" button would change set `#first-tab` as active on the tabs instance referenced as `testTabs`:
-```html
+```vue
 <template>
   <tabs ref="testTabs" :options="{ defaultTabHash: 'second-tab' }">
     <tab id="first-tab" name="First tab">
@@ -305,7 +296,6 @@ If you discover any security related issues, please contact [Jakub Potocký](htt
 - [Freek Van der Herten](https://github.com/freekmurze)
 - [Willem Van Bockstal](https://github.com/willemvb)
 - [Sebastian De Deyne](https://github.com/sebastiandedeyne)
-- [All Contributors](../../contributors)
 
 **This package is a fork of the popular `spatie/vue-tabs-component` Vue 2 package, which has been discontinued by Spatie**
 

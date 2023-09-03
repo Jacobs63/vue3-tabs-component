@@ -2,6 +2,9 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.3.6 - 2023-09-03
+- CS/typo fixes
+
 ## 1.3.5 - 2023-09-03
 - Refactor `Tab` & `Tabs` component prop definitions to TypeScript
 - Add `id` & `options.storageKey` props to `Tabs` component, which are used when remembering last opened tab

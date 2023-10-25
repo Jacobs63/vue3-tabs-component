@@ -2,6 +2,9 @@
 
 All notable changes to `vue3-tabs-component` will be documented in this file
 
+## 1.3.7 - 2023-10-25
+- Fix selecting default tab if cache is not used
+
 ## 1.3.6 - 2023-09-03
 - CS/typo fixes
 

@@ -205,11 +205,11 @@ onMounted(() => {
       selectTab(previousSelectedTabHash)
       return
     }
+  }
 
-    if (props.options.defaultTabHash && findTab("#" + props.options.defaultTabHash)) {
-      selectTab("#" + props.options.defaultTabHash)
-      return
-    }
+  if (props.options.defaultTabHash && findTab("#" + props.options.defaultTabHash)) {
+    selectTab("#" + props.options.defaultTabHash)
+    return
   }
 
   selectTab(state.tabs[0].hash)

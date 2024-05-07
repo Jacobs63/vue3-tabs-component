@@ -142,17 +142,6 @@ When using with other libraries that use the url fragment, you can disable modif
 </tabs>
 ```
 
-### Disable scroll behaviour when clicking a tab
-When clicking a tab, the default browser scroll behavior gets applied.
-By-default, this makes the page jump to the element, which in this case means jumping to the tab content.
-This may be undesired - to disable this default behaviour, you can use the `options.disableScrollBehavior` prop as `true` on a `tabs` component:
-
-```html
-<tabs :options="{ disableScrollBehavior: true }">
-  ...
-</tabs>
-```
-
 ### Callbacks
 Tabs have two events to which you can bind: `changed` and `clicked`
 

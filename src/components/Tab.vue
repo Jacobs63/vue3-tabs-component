@@ -7,7 +7,7 @@
     :aria-hidden="!isActive"
     :class="panelClass"
     role="tabpanel"
-    tabindex="-1"
+    :tabindex="tabIndex"
   >
     <slot />
   </section>
@@ -54,6 +54,7 @@ const computedId = props.id
   : props.name.toLowerCase().replace(/ /g, "-")
 const paneId = computedId + "-pane"
 const hash = computed(() => "#" + (!props.isDisabled ? computedId : ""))
+const tabIndex = computed(() => isActive.value ? '' : '-1')
 
 watch(
   () => tabsProvider.activeTabHash,

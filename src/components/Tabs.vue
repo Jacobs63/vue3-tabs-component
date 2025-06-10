@@ -3,10 +3,12 @@
     :class="wrapperClass"
     :id="id"
   >
+    <slot name="before-list" />
     <ul
       role="tablist"
       :class="navClass"
     >
+      <slot name="before-tabs" />
       <li
         v-for="(tab, i) in state.tabs"
         :key="i"
@@ -32,7 +34,9 @@
           tabindex="0"
         />
       </li>
+      <slot name="after-tabs" />
     </ul>
+    <slot name="after-list" />
     <div :class="panelsWrapperClass">
       <slot />
     </div>

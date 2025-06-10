@@ -172,6 +172,26 @@ The title of the tab will now be `my prefix - First tab - my suffix`.
 
 The fragment that's added to the url when clicking the tab will only be based on the `name` of a tab, the `name-prefix` and `name-suffix` attributes will be ignored.
 
+### Additional slots
+
+You can add content using additional slots.
+
+Available slots: `before-list`, `before-tabs`, `after-tabs`, `after-list`
+
+```html
+<div>
+    <tabs>
+        <template #after-tabs>My requests</template>
+        <tab name="Active">
+            First tab content
+        </tab>
+        <tab name="Passive">
+            Second tab content
+        </tab>
+    </tabs>
+</div>
+```
+
 ### Customizing fragments
 
 When clicking on a tab it's name will be used as a fragment in the url. For example clicking on the `Second tab` will append `#second-tab` to the current url. 
